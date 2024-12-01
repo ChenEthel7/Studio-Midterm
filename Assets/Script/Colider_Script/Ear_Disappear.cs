@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Ear_Disappear : MonoBehaviour
 {
-    public ParticleSystem PR;
+    [SerializeField]
+    EarOn EO;
     // Start is called before the first frame update
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Ear")
         {
-            PR.Play();
-            StartCoroutine(StopParticleSystem(PR,5));
+           EO.Ear = true;
         }
        
-    }
-     IEnumerator StopParticleSystem(ParticleSystem ps, float time)
-    {
-        yield return new WaitForSeconds(time);
-        ps.Stop();
     }
 }

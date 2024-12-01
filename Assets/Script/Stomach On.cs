@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrainOn : MonoBehaviour
+public class StomachOn : MonoBehaviour
 {
     [SerializeField]
     Animator myAnim;
-    public bool Brain;
+    public bool Stomach;
     // Start is called before the first frame update
     private void Start()
     {
-        Brain = false;
+        Stomach = false;
     }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Player"))&& Brain)
-           {
-               myAnim.SetTrigger("Brain");
-           }
+        if ((other.CompareTag("Player")) && Stomach)
+        {
+            myAnim.SetTrigger("Stomach");
+        }
     }
 }
