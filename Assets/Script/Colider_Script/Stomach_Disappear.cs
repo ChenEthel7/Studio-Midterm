@@ -11,7 +11,7 @@ public class Stomach_Disappear : MonoBehaviour
         if(other.gameObject.tag == "Stomach")
         {
             PR.Play();
-        StartCoroutine(StopParticleSystem(PR,5));
+            StartCoroutine(StopParticleSystem(PR,5));
         }
        
     }

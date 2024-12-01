@@ -63,7 +63,7 @@ IEnumerator Pulse()
                 approachSpeed = Random.Range(0.07f, 0.1f);
 
                 // Range of growth bound
-                growthBound = Random.Range(0.9f, 1.1f);
+                growthBound = Random.Range(1.7f, 2.1f);
 
                 while (this.currentRatio != this.growthBound)
                 {
@@ -79,7 +79,7 @@ IEnumerator Pulse()
                 }
 
                 // Range of shrink bound
-                shrinkBound = Random.Range(0.9f, 1.1f);
+                shrinkBound = Random.Range(1.7f, 2.1f);
 
                 while (this.currentRatio != this.shrinkBound)
                 {

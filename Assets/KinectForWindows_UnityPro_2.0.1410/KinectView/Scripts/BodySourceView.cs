@@ -11,6 +11,7 @@ public class BodySourceView : MonoBehaviour
     public GameObject Brain;
     public GameObject Heart;
     public GameObject Stomach;
+    public GameObject Ear;
     
     private Dictionary<ulong, GameObject> _Bodies = new Dictionary<ulong, GameObject>();
     private BodySourceManager _BodyManager;
@@ -151,7 +152,17 @@ public class BodySourceView : MonoBehaviour
                 lr.material = BoneMaterial;
                 lr.SetWidth(0.1f, 0.1f);
                 Heart_Joint.name = jt.ToString();
-                 Heart_Joint.transform.parent = body.transform;
+                Heart_Joint.transform.parent = body.transform;
+            }
+            else if (jt ==  Kinect.JointType.ShoulderLeft)
+            {
+                GameObject EJ  = Instantiate(Ear);
+                LineRenderer lr =  EJ.AddComponent<LineRenderer>();
+                lr.SetVertexCount(2);
+                lr.material = BoneMaterial;
+                lr.SetWidth(0.1f, 0.1f);
+                EJ.name = jt.ToString();
+                EJ.transform.parent = body.transform;
             }
              else if (jt ==  Kinect.JointType.SpineMid)
             {
@@ -163,6 +174,7 @@ public class BodySourceView : MonoBehaviour
                 SJ.name = jt.ToString();
                 SJ.transform.parent = body.transform;
             }
+
             else
             {
                 GameObject jointObj = GameObject.CreatePrimitive(PrimitiveType.Cube);

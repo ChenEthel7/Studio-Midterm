@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Brain
+  - Heart
+  - Stomach
+  - Ear
+  - Hand
+  - CinemachineTarget
+  - Brain Range
+  - Ear Range
+  - Heart Range
+  - Stomach Range
+  - Ear Enviroment
+  - Stomach Enviroment
+  - Brain Enviroment
+  - Heart Enviroment
+  - Nerve
   layers:
   - Default
   - TransparentFX
