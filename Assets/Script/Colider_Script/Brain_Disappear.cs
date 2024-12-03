@@ -8,6 +8,7 @@ public class Brain_Disappear : MonoBehaviour
     BrainOn BO;
     [SerializeField]
     Animator myAnim;
+    public ParticleSystem PR;
     private void Start()
     {
 
@@ -20,8 +21,13 @@ public class Brain_Disappear : MonoBehaviour
         {
            BO.Brain = true;
            myAnim.SetTrigger("ON");
-        }
-        
-        
+           PR.Play();
+            StartCoroutine(StopParticleSystem(PR,5));
+        } 
+    }
+    IEnumerator StopParticleSystem(ParticleSystem ps, float time)
+    {
+        yield return new WaitForSeconds(time);
+        ps.Stop();
     }
 }
