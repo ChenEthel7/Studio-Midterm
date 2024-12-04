@@ -7,28 +7,28 @@ public class SoundCueManager : MonoBehaviour
     public Transform player;       // Reference to the player
     public Transform targetObject; // Reference to the target object
     public AudioSource audioSource; // The audio source component on the target
+    public float maxVolume = 1.0f;  // Maximum volume of the sound
+    public float minVolume = 0.1f;  // Minimum volume of the sound
+    public float maxDistance = 20f; // Maximum distance at which the sound is faint
 
     void Start()
     {
+        // Ensure the sound starts playing
         if (!audioSource.isPlaying)
         {
-            audioSource.Play(); // Ensure the sound is always playing
+            audioSource.Play();
         }
     }
 
     void Update()
     {
-        // Calculate the direction from the player to the target object
-        Vector3 directionToTarget = targetObject.position - player.position;
+        // Calculate the distance between the player and the target object
+        float distance = Vector3.Distance(player.position, targetObject.position);
 
-        // Optionally, adjust the volume based on orientation
-        float angle = Vector3.Angle(player.forward, directionToTarget.normalized);
+        // Map the distance to a volume range (inverse relationship)
+        float volume = Mathf.Clamp(1 - (distance / maxDistance), minVolume, maxVolume);
 
-        // Make volume decrease as the angle increases
-        audioSource.volume = Mathf.Clamp01(1 - angle / 180f);
-
-        // (Optional) Pan sound left or right based on the relative position
-        Vector3 playerToTarget = player.InverseTransformPoint(targetObject.position);
-        audioSource.panStereo = Mathf.Clamp(playerToTarget.x / 10f, -1f, 1f); // Adjust stereo pan
+        // Set the audio source volume
+        audioSource.volume = volume;
     }
 }

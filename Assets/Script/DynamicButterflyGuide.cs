@@ -12,13 +12,13 @@ public class DynamicButterflyGuide : MonoBehaviour
     public float floatAmplitude = 0.5f; // Amplitude for floating effect
     public float floatFrequency = 1f; // Frequency for floating effect
     public float moveSpeed = 2f; // Speed butterflies move toward the target
-    public float butterflyLifespan = 5f; // Lifespan of each butterfly
     public float spawnDistance = 2f; // Distance in front of the player to spawn butterflies
     public float horizontalSpread = 1f; // Side-to-side spread for butterflies
     public float verticalOffset = 1f; // Vertical offset for butterflies
 
     private Transform playerTransform; // Reference to the player's transform
     private float spawnTimer = 0f; // Timer for spawning butterflies
+    public bool butterflyTriggered = false; // Boolean to trigger the butterfly effect
 
     void Start()
     {
@@ -31,13 +31,21 @@ public class DynamicButterflyGuide : MonoBehaviour
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-
-        // Spawn a butterfly at intervals
-        if (spawnTimer >= spawnInterval && maxButterflies > 0)
+        if (butterflyTriggered)
         {
-            SpawnButterfly();
-            spawnTimer = 0f;
+            spawnTimer += Time.deltaTime;
+
+            // Spawn a butterfly at intervals
+            if (spawnTimer >= spawnInterval && maxButterflies > 0)
+            {
+                SpawnButterfly();
+                spawnTimer = 0f;
+            }
+        }
+        // Butterflies can still float/move toward the target, even if not triggered
+        else
+        {
+            Debug.Log("Butterfly is idle or waiting to be triggered.");
         }
     }
 
@@ -56,9 +64,18 @@ public class DynamicButterflyGuide : MonoBehaviour
             targetObject,
             floatAmplitude,
             floatFrequency,
-            moveSpeed,
-            butterflyLifespan
+            moveSpeed
         );
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the player touches the butterfly
+        if (other.CompareTag("Player"))
+        {
+            butterflyTriggered = true; // Activate butterfly effect
+            Debug.Log("Butterfly triggered!");
+        }
     }
 }
 
@@ -68,20 +85,16 @@ public class DynamicButterflyBehavior : MonoBehaviour
     private float floatAmplitude;
     private float floatFrequency;
     private float moveSpeed;
-    private float lifespan;
 
     private Vector3 initialPosition; // Starting position for floating effect
 
-    public void Initialize(Transform targetObject, float amplitude, float frequency, float speed, float life)
+    public void Initialize(Transform targetObject, float amplitude, float frequency, float speed)
     {
         target = targetObject;
         floatAmplitude = amplitude;
         floatFrequency = frequency;
         moveSpeed = speed;
-        lifespan = life;
         initialPosition = transform.position;
-
-        Destroy(gameObject, lifespan); // Destroy butterfly after its lifespan ends
     }
 
     void Update()

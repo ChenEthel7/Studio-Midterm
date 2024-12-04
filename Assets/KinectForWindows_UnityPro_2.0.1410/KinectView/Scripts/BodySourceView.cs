@@ -144,7 +144,7 @@ public class BodySourceView : MonoBehaviour
                 BJ.name = jt.ToString();
                 BJ.transform.parent = body.transform;
             }
-             else if (jt ==  Kinect.JointType.ShoulderRight)
+             else if (jt ==  Kinect.JointType.ShoulderLeft)
             {
                 GameObject Heart_Joint  = Instantiate(Heart);
                 LineRenderer lr =  Heart_Joint.AddComponent<LineRenderer>();
@@ -154,7 +154,7 @@ public class BodySourceView : MonoBehaviour
                 Heart_Joint.name = jt.ToString();
                 Heart_Joint.transform.parent = body.transform;
             }
-            else if (jt ==  Kinect.JointType.ShoulderLeft)
+            else if (jt ==  Kinect.JointType.ShoulderRight)
             {
                 GameObject EJ  = Instantiate(Ear);
                 LineRenderer lr =  EJ.AddComponent<LineRenderer>();

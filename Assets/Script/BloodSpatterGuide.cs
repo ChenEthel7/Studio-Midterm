@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BloodSpatterGuide : MonoBehaviour
@@ -15,19 +17,24 @@ public class BloodSpatterGuide : MonoBehaviour
     public float updateInterval = 0.5f; // Time between spatter updates
     public LayerMask groundLayer; // Set the ground layer in the Inspector
 
+    public bool bloodsplatter = false; // Blood spatter effect initially off
+
     private Queue<GameObject> bloodSpatters = new Queue<GameObject>();
     private List<float> spatterTimers = new List<float>(); // Track fade-out timers
     private float nextUpdateTime;
 
     void Update()
     {
-        if (Time.time >= nextUpdateTime)
+        if (bloodsplatter) // Only update if blood splatter is triggered
         {
-            nextUpdateTime = Time.time + updateInterval;
-            UpdateBloodPath();
-        }
+            if (Time.time >= nextUpdateTime)
+            {
+                nextUpdateTime = Time.time + updateInterval;
+                UpdateBloodPath();
+            }
 
-        FadeOutSpatters();
+            FadeOutSpatters();
+        }
     }
 
     void UpdateBloodPath()
@@ -91,6 +98,15 @@ public class BloodSpatterGuide : MonoBehaviour
                     renderer.material.color = color;
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the player is touched by the specific object
+        if (other.transform == player)
+        {
+            bloodsplatter = true; // Trigger the blood spatter effect
         }
     }
 }

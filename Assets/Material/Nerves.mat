@@ -26,6 +26,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
+  - _ALPHATEST_ON
   - _DETAIL_MULX2
   - _NORMALMAP
   - _PARALLAXMAP
@@ -196,7 +197,7 @@ Material:
     - Wind_Turbulence: 0
     - Wind_Wavelength: 10
     - Wind_Yaw: 180
-    - _AlphaClip: 0
+    - _AlphaClip: 1
     - _AlphaToMask: 0
     - _BUILTIN_AlphaClip: 1
     - _BUILTIN_Blend: 0
@@ -230,7 +231,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _HeightTransition: 0
-    - _Metallic: 0.45
+    - _Metallic: 0.3
     - _Metallic0: 0
     - _Metallic1: 0
     - _Metallic2: 0
@@ -242,7 +243,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.58
+    - _Smoothness: 0.5
     - _Smoothness0: 0.5
     - _Smoothness1: 0.5
     - _Smoothness2: 0.5
@@ -259,10 +260,10 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - Fade_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.6132076, g: 0.22850648, b: 0.2724425, a: 0.5882353}
-    - _Color: {r: 0.6132076, g: 0.22850645, b: 0.27244246, a: 0.5882353}
+    - _BaseColor: {r: 0.6132076, g: 0.22850621, b: 0.27244225, a: 0.654902}
+    - _Color: {r: 0.6132076, g: 0.22850618, b: 0.27244222, a: 0.654902}
     - _Deep_Water_Color: {r: 0.17003196, g: 0.38455346, b: 0.6301887, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.047169805, g: 0.01935742, b: 0.01935742, a: 1}
     - _Shallow_Water_Color: {r: 0.5299323, g: 0.8752438, b: 0.9924528, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Subsurface_Scattering_Color: {r: 1, g: 1, b: 1, a: 0}

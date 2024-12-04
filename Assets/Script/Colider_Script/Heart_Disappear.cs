@@ -6,16 +6,16 @@ public class Heart_Disappear : MonoBehaviour
 {
     [SerializeField]
     HeartOn HO;
-    [SerializeField]
-    Animator myAnim;
     public ParticleSystem PR;
+    [SerializeField]
+    BloodSpatterGuide BSO;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Heart")
         {
            HO.Heart = true;
-           myAnim.SetTrigger("ON");
+           BSO.bloodsplatter = true;
            PR.Play();
             StartCoroutine(StopParticleSystem(PR,5));
         } 

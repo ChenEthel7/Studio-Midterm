@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButterflyOFF : MonoBehaviour
 {
     [SerializeField]
-    Animator myAnim;
+    DynamicButterflyGuide BO;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class ButterflyOFF : MonoBehaviour
     {
         if (other.CompareTag("ButterflyTrail"))
            {
-               myAnim.SetTrigger("OFF");
+                BO.butterflyTriggered = false;
            }
     }
 }

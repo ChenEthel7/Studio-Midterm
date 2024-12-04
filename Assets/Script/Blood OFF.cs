@@ -5,7 +5,7 @@ using UnityEngine;
 public class BloodOFF : MonoBehaviour
 {
     [SerializeField]
-    Animator myAnim;
+    BloodSpatterGuide BSO;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class BloodOFF : MonoBehaviour
     {
         if (other.CompareTag("BloodTrail"))
            {
-               myAnim.SetTrigger("OFF");
+               BSO.bloodsplatter = false;
            }
     }
 }

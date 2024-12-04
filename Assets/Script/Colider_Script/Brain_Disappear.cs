@@ -7,6 +7,8 @@ public class Brain_Disappear : MonoBehaviour
     [SerializeField]
     BrainOn BO;
     [SerializeField]
+    HeartOn HO;
+    [SerializeField]
     Animator myAnim;
     public ParticleSystem PR;
     private void Start()
@@ -20,6 +22,7 @@ public class Brain_Disappear : MonoBehaviour
         if(other.gameObject.tag == "Brain")
         {
            BO.Brain = true;
+           HO.HeartB = true;
            myAnim.SetTrigger("ON");
            PR.Play();
             StartCoroutine(StopParticleSystem(PR,5));

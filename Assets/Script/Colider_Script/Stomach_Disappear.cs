@@ -7,15 +7,18 @@ public class Stomach_Disappear : MonoBehaviour
     [SerializeField]
     StomachOn SO;
     [SerializeField]
-    Animator myAnim;
+    HeartOn HO;
     public ParticleSystem PR;
+    [SerializeField]
+    DynamicButterflyGuide BO;
     // Start is called before the first frame update
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Stomach")
         {
             SO.Stomach = true;
-            myAnim.SetTrigger("ON");
+            HO.HeartS = true;
+            BO.butterflyTriggered = true;
             PR.Play();
             StartCoroutine(StopParticleSystem(PR,5));
         }     

@@ -6,7 +6,20 @@ public class EarOn : MonoBehaviour
 {
     [SerializeField]
     Animator myAnim;
+    [SerializeField]
+    Animator myCam;
+    [SerializeField]
+    AudioSource mystartCam;
     public bool Ear;
+    [System.Serializable]
+    public class SoundEvent
+    {
+        public string name; // Optional identifier
+        public AudioSource audioSource; // Reference to the AudioSource
+    }
+
+    public SoundEvent[] soundEvents; // Array of sound events
+    public bool allowMultipleSounds = true; // Option to play multiple sounds simultaneously
     // Start is called before the first frame update
     private void Start()
     {
@@ -18,7 +31,30 @@ public class EarOn : MonoBehaviour
     {
         if((other.CompareTag("Player"))&& Ear)
         {
-            myAnim.SetTrigger("Ear");
+            myAnim.SetTrigger("ON");
+            myCam.SetTrigger("ON");
+            mystartCam.Play();
+            PlaySounds();
+        }
+    }
+     private void PlaySounds()
+    {
+        foreach (var soundEvent in soundEvents)
+        {
+            if (soundEvent.audioSource != null)
+            {
+                if (allowMultipleSounds || !soundEvent.audioSource.isPlaying)
+                {
+                    soundEvent.audioSource.Play();
+                }
+            }
+        }
+    }
+    void Update()
+    {
+        if(mystartCam.time > 1f)
+        {
+                mystartCam.Stop();
         }
     }
 }
