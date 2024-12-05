@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.1
@@ -12014,7 +12014,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -12077,7 +12077,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.965
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -18608,7 +18608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164487292427907905, guid: 00e66ba3bd1747c43b7c043e035c76f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1072
+      value: 1657.3
       objectReference: {fileID: 0}
     - target: {fileID: 3164487292427907905, guid: 00e66ba3bd1747c43b7c043e035c76f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26389,12 +26389,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4710775846923999638, guid: 49b9f8861f72a0e4bba1b8366aed6a5e, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6333386351386099111, guid: 49b9f8861f72a0e4bba1b8366aed6a5e, type: 3}
       propertyPath: m_Name
       value: big rocks
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 636758049355093634, guid: 49b9f8861f72a0e4bba1b8366aed6a5e, type: 3}
+    - {fileID: 3267807843423838512, guid: 49b9f8861f72a0e4bba1b8366aed6a5e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b9f8861f72a0e4bba1b8366aed6a5e, type: 3}
